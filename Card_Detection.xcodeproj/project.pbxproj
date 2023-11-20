@@ -17,6 +17,11 @@
 		E9A7B1302B0B504500315E12 /* Card_DetectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B12F2B0B504500315E12 /* Card_DetectionTests.swift */; };
 		E9A7B13A2B0B504500315E12 /* Card_DetectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1392B0B504500315E12 /* Card_DetectionUITests.swift */; };
 		E9A7B13C2B0B504500315E12 /* Card_DetectionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B13B2B0B504500315E12 /* Card_DetectionUITestsLaunchTests.swift */; };
+		E9A7B1502B0B51E800315E12 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B14D2B0B51E800315E12 /* UIImage+CVPixelBuffer.swift */; };
+		E9A7B1512B0B51E800315E12 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B14E2B0B51E800315E12 /* VideoCapture.swift */; };
+		E9A7B1522B0B51E800315E12 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B14F2B0B51E800315E12 /* Measure.swift */; };
+		E9A7B1552B0B532900315E12 /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1542B0B532900315E12 /* DrawingBoundingBoxView.swift */; };
+		E9A7B1582B0B551B00315E12 /* yolov8s.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1572B0B551B00315E12 /* yolov8s.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		E9A7B1352B0B504500315E12 /* Card_DetectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Card_DetectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A7B1392B0B504500315E12 /* Card_DetectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_DetectionUITests.swift; sourceTree = "<group>"; };
 		E9A7B13B2B0B504500315E12 /* Card_DetectionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_DetectionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E9A7B14D2B0B51E800315E12 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+CVPixelBuffer.swift"; path = "../../../../../../../../Desktop/IZOTA/ObjectDetection-CoreML/ObjectDetection-CoreML/Presentation/CustomCameraRealtime/UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		E9A7B14E2B0B51E800315E12 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCapture.swift; path = "../../../../../../../../Desktop/IZOTA/ObjectDetection-CoreML/ObjectDetection-CoreML/Presentation/CustomCameraRealtime/VideoCapture.swift"; sourceTree = "<group>"; };
+		E9A7B14F2B0B51E800315E12 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Measure.swift; path = "../../../../../../../../Desktop/IZOTA/ObjectDetection-CoreML/ObjectDetection-CoreML/Presentation/CustomCameraRealtime/Measure.swift"; sourceTree = "<group>"; };
+		E9A7B1542B0B532900315E12 /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingBoundingBoxView.swift; path = "../../../../../../../../Desktop/IZOTA/ObjectDetection-CoreML/ObjectDetection-CoreML/Presentation/DrawingBoundingBoxView.swift"; sourceTree = "<group>"; };
+		E9A7B1572B0B551B00315E12 /* yolov8s.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = yolov8s.mlpackage; path = ../../../../../../../Desktop/IZOTA/yolov8s.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 		E9A7B1142B0B504300315E12 /* Card_Detection */ = {
 			isa = PBXGroup;
 			children = (
+				E9A7B1562B0B550200315E12 /* MLModel */,
 				E9A7B14A2B0B50AC00315E12 /* Application */,
 				E9A7B1492B0B50A000315E12 /* Presentation */,
 				E9A7B1482B0B508F00315E12 /* Resource */,
@@ -139,6 +150,8 @@
 		E9A7B1492B0B50A000315E12 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E9A7B1532B0B531A00315E12 /* BoxView */,
+				E9A7B14C2B0B51B600315E12 /* SetupCameraRealtime */,
 				E9A7B1192B0B504300315E12 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -160,6 +173,32 @@
 				E9A7B11E2B0B504300315E12 /* Card_Detection.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E9A7B14C2B0B51B600315E12 /* SetupCameraRealtime */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B14F2B0B51E800315E12 /* Measure.swift */,
+				E9A7B14D2B0B51E800315E12 /* UIImage+CVPixelBuffer.swift */,
+				E9A7B14E2B0B51E800315E12 /* VideoCapture.swift */,
+			);
+			path = SetupCameraRealtime;
+			sourceTree = "<group>";
+		};
+		E9A7B1532B0B531A00315E12 /* BoxView */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B1542B0B532900315E12 /* DrawingBoundingBoxView.swift */,
+			);
+			path = BoxView;
+			sourceTree = "<group>";
+		};
+		E9A7B1562B0B550200315E12 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B1572B0B551B00315E12 /* yolov8s.mlpackage */,
+			);
+			path = MLModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9A7B1522B0B51E800315E12 /* Measure.swift in Sources */,
 				E9A7B11A2B0B504300315E12 /* ViewController.swift in Sources */,
 				E9A7B1162B0B504300315E12 /* AppDelegate.swift in Sources */,
+				E9A7B1582B0B551B00315E12 /* yolov8s.mlpackage in Sources */,
+				E9A7B1502B0B51E800315E12 /* UIImage+CVPixelBuffer.swift in Sources */,
 				E9A7B1182B0B504300315E12 /* SceneDelegate.swift in Sources */,
+				E9A7B1552B0B532900315E12 /* DrawingBoundingBoxView.swift in Sources */,
+				E9A7B1512B0B51E800315E12 /* VideoCapture.swift in Sources */,
 				E9A7B1202B0B504300315E12 /* Card_Detection.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +520,7 @@
 				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Card_Detection/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow using camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -504,6 +549,7 @@
 				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Card_Detection/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow using camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

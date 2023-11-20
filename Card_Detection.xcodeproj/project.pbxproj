@@ -101,14 +101,11 @@
 		E9A7B1142B0B504300315E12 /* Card_Detection */ = {
 			isa = PBXGroup;
 			children = (
-				E9A7B1152B0B504300315E12 /* AppDelegate.swift */,
-				E9A7B1172B0B504300315E12 /* SceneDelegate.swift */,
-				E9A7B1192B0B504300315E12 /* ViewController.swift */,
-				E9A7B11B2B0B504300315E12 /* Main.storyboard */,
-				E9A7B1212B0B504500315E12 /* Assets.xcassets */,
-				E9A7B1232B0B504500315E12 /* LaunchScreen.storyboard */,
+				E9A7B14A2B0B50AC00315E12 /* Application */,
+				E9A7B1492B0B50A000315E12 /* Presentation */,
+				E9A7B1482B0B508F00315E12 /* Resource */,
 				E9A7B1262B0B504500315E12 /* Info.plist */,
-				E9A7B11E2B0B504300315E12 /* Card_Detection.xcdatamodeld */,
+				E9A7B14B2B0B50CA00315E12 /* CoreData */,
 			);
 			path = Card_Detection;
 			sourceTree = "<group>";
@@ -128,6 +125,41 @@
 				E9A7B13B2B0B504500315E12 /* Card_DetectionUITestsLaunchTests.swift */,
 			);
 			path = Card_DetectionUITests;
+			sourceTree = "<group>";
+		};
+		E9A7B1482B0B508F00315E12 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B1212B0B504500315E12 /* Assets.xcassets */,
+				E9A7B1232B0B504500315E12 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E9A7B1492B0B50A000315E12 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B1192B0B504300315E12 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E9A7B14A2B0B50AC00315E12 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B1152B0B504300315E12 /* AppDelegate.swift */,
+				E9A7B1172B0B504300315E12 /* SceneDelegate.swift */,
+				E9A7B11B2B0B504300315E12 /* Main.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E9A7B14B2B0B50CA00315E12 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B11E2B0B504300315E12 /* Card_Detection.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

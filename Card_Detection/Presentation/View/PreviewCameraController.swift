@@ -9,18 +9,31 @@ import UIKit
 import Vision
 import CoreMedia
 
-class ViewController: UIViewController, CameraRealtimeDelegate {
-    func updateMeasure(inferenceTime: Double, executionTime: Double, fps: Int) {
+class PreviewCameraController: UIViewController, CameraRealtimeDelegate {
     
+    var keyMLModel: Int?
+    
+    
+    func updateMeasure(inferenceTime: Double, executionTime: Double, fps: Int) {
+        DispatchQueue.main.async {
+            self.maf1.append(element: Int(inferenceTime*1000.0))
+            self.maf2.append(element: Int(executionTime*1000.0))
+            self.maf3.append(element: fps)
+            
+//            print("inference: \(self.maf1.averageValue) ms")
+//            print("execution: \(self.maf2.averageValue) ms")
+//            print("fps: \(self.maf3.averageValue)")
+        }
     }
     
-
+    
     // MARK: - UI Properties
-
+    
     @IBOutlet weak var videoPreview: UIView!
     @IBOutlet weak var boxesView: DrawingBoundingBoxView!
     
-    lazy var objectDectectionModel = { return try? yolov8s() }()
+    
+    //lazy var objectDectectionModel = { return try? yolov8s() }()
     
     // MARK: - Vision Properties
     var request: VNCoreMLRequest?
@@ -72,16 +85,31 @@ class ViewController: UIViewController, CameraRealtimeDelegate {
     
     // MARK: - Setup Core ML
     func setUpModel() {
-        guard let objectDectectionModel = objectDectectionModel else { fatalError("fail to load the model") }
-        if let visionModel = try? VNCoreMLModel(for: objectDectectionModel.model) {
-            self.visionModel = visionModel
-            request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
-            request?.imageCropAndScaleOption = .scaleFill
-        } else {
-            fatalError("fail to create vision model")
+        
+        if keyMLModel == 1 {
+            print("Load yolov8s!")
+            guard var objectDectectionModel = try? yolov8s() else { fatalError("fail to load the model") }
+            if let visionModel = try? VNCoreMLModel(for: objectDectectionModel.model) {
+                self.visionModel = visionModel
+                request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+                request?.imageCropAndScaleOption = .scaleFill
+            } else {
+                fatalError("fail to create vision model")
+            }
+        }
+        else {
+            print("Load IDCardDetector!")
+            guard var objectDectectionModel = try? IDCardDetector() else { fatalError("fail to load the model") }
+            if let visionModel = try? VNCoreMLModel(for: objectDectectionModel.model) {
+                self.visionModel = visionModel
+                request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+                request?.imageCropAndScaleOption = .scaleFill
+            } else {
+                fatalError("fail to create vision model")
+            }
         }
     }
-
+    
     // MARK: - SetUp Video
     func setUpCamera() {
         videoCapture = VideoCapture()
@@ -113,7 +141,7 @@ class ViewController: UIViewController, CameraRealtimeDelegate {
 }
 
 // MARK: - VideoCaptureDelegate
-extension ViewController: VideoCaptureDelegate {
+extension PreviewCameraController: VideoCaptureDelegate {
     func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame pixelBuffer: CVPixelBuffer?, timestamp: CMTime) {
         // the captured image from camera is contained on pixelBuffer
         if !self.isInferencing, let pixelBuffer = pixelBuffer {
@@ -128,7 +156,7 @@ extension ViewController: VideoCaptureDelegate {
     }
 }
 
-extension ViewController {
+extension PreviewCameraController {
     func predictUsingVision(pixelBuffer: CVPixelBuffer) {
         guard let request = request else { fatalError() }
         // vision framework configures the input size of image following our model's input configuration automatically
@@ -141,13 +169,13 @@ extension ViewController {
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
         self.cameraRealtime.tagObject(with: "endInference")
         if let predictions = request.results as? [VNRecognizedObjectObservation] {
-//            print(predictions.first?.labels.first?.identifier ?? "nil")
-//            print(predictions.first?.labels.first?.confidence ?? -1)
+            //            print(predictions.first?.labels.first?.identifier ?? "nil")
+            //            print(predictions.first?.labels.first?.confidence ?? -1)
             
             self.predictions = predictions
             DispatchQueue.main.async {
                 self.boxesView.predictedObjects = predictions
-
+                
                 // end of measure
                 self.cameraRealtime.stopFilming()
                 
@@ -163,7 +191,7 @@ extension ViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension PreviewCameraController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return predictions.count
     }
@@ -172,7 +200,7 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") else {
             return UITableViewCell()
         }
-
+        
         let rectString = predictions[indexPath.row].boundingBox.toString(digit: 2)
         let confidence = predictions[indexPath.row].labels.first?.confidence ?? -1
         let confidenceString = String(format: "%.3f", confidence/*Math.sigmoid(confidence)*/)

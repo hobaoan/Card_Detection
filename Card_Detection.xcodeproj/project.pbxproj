@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E9A7B1162B0B504300315E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1152B0B504300315E12 /* AppDelegate.swift */; };
 		E9A7B1182B0B504300315E12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1172B0B504300315E12 /* SceneDelegate.swift */; };
-		E9A7B11A2B0B504300315E12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1192B0B504300315E12 /* ViewController.swift */; };
+		E9A7B11A2B0B504300315E12 /* PreviewCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1192B0B504300315E12 /* PreviewCameraController.swift */; };
 		E9A7B11D2B0B504300315E12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B11B2B0B504300315E12 /* Main.storyboard */; };
 		E9A7B1202B0B504300315E12 /* Card_Detection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B11E2B0B504300315E12 /* Card_Detection.xcdatamodeld */; };
 		E9A7B1222B0B504500315E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B1212B0B504500315E12 /* Assets.xcassets */; };
@@ -22,6 +22,8 @@
 		E9A7B1522B0B51E800315E12 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B14F2B0B51E800315E12 /* Measure.swift */; };
 		E9A7B1552B0B532900315E12 /* DrawingBoundingBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1542B0B532900315E12 /* DrawingBoundingBoxView.swift */; };
 		E9A7B1582B0B551B00315E12 /* yolov8s.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B1572B0B551B00315E12 /* yolov8s.mlpackage */; };
+		E9CF0DD32B0C4ACC0079DD5A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CF0DD22B0C4ACC0079DD5A /* StartViewController.swift */; };
+		E9CF0DD52B0C4C9B0079DD5A /* IDCardDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E9CF0DD42B0C4C9B0079DD5A /* IDCardDetector.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,7 @@
 		E9A7B1122B0B504300315E12 /* Card_Detection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Card_Detection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A7B1152B0B504300315E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A7B1172B0B504300315E12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E9A7B1192B0B504300315E12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E9A7B1192B0B504300315E12 /* PreviewCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCameraController.swift; sourceTree = "<group>"; };
 		E9A7B11C2B0B504300315E12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9A7B11F2B0B504300315E12 /* Card_Detection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card_Detection.xcdatamodel; sourceTree = "<group>"; };
 		E9A7B1212B0B504500315E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +63,8 @@
 		E9A7B14F2B0B51E800315E12 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Measure.swift; path = "../../../../../../../../Desktop/IZOTA/ObjectDetection-CoreML/ObjectDetection-CoreML/Presentation/CustomCameraRealtime/Measure.swift"; sourceTree = "<group>"; };
 		E9A7B1542B0B532900315E12 /* DrawingBoundingBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingBoundingBoxView.swift; path = "../../../../../../../../Desktop/IZOTA/ObjectDetection-CoreML/ObjectDetection-CoreML/Presentation/DrawingBoundingBoxView.swift"; sourceTree = "<group>"; };
 		E9A7B1572B0B551B00315E12 /* yolov8s.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = yolov8s.mlpackage; path = ../../../../../../../Desktop/IZOTA/yolov8s.mlpackage; sourceTree = "<group>"; };
+		E9CF0DD22B0C4ACC0079DD5A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E9CF0DD42B0C4C9B0079DD5A /* IDCardDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = IDCardDetector.mlmodel; path = ../../../../../../../Desktop/IZOTA/IDCardDetector.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +154,9 @@
 		E9A7B1492B0B50A000315E12 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E9A7B1592B0BBB0A00315E12 /* View */,
 				E9A7B1532B0B531A00315E12 /* BoxView */,
 				E9A7B14C2B0B51B600315E12 /* SetupCameraRealtime */,
-				E9A7B1192B0B504300315E12 /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -196,9 +200,19 @@
 		E9A7B1562B0B550200315E12 /* MLModel */ = {
 			isa = PBXGroup;
 			children = (
+				E9CF0DD42B0C4C9B0079DD5A /* IDCardDetector.mlmodel */,
 				E9A7B1572B0B551B00315E12 /* yolov8s.mlpackage */,
 			);
 			path = MLModel;
+			sourceTree = "<group>";
+		};
+		E9A7B1592B0BBB0A00315E12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9A7B1192B0B504300315E12 /* PreviewCameraController.swift */,
+				E9CF0DD22B0C4ACC0079DD5A /* StartViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +347,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A7B1522B0B51E800315E12 /* Measure.swift in Sources */,
-				E9A7B11A2B0B504300315E12 /* ViewController.swift in Sources */,
+				E9A7B11A2B0B504300315E12 /* PreviewCameraController.swift in Sources */,
 				E9A7B1162B0B504300315E12 /* AppDelegate.swift in Sources */,
 				E9A7B1582B0B551B00315E12 /* yolov8s.mlpackage in Sources */,
 				E9A7B1502B0B51E800315E12 /* UIImage+CVPixelBuffer.swift in Sources */,
+				E9CF0DD32B0C4ACC0079DD5A /* StartViewController.swift in Sources */,
+				E9CF0DD52B0C4C9B0079DD5A /* IDCardDetector.mlmodel in Sources */,
 				E9A7B1182B0B504300315E12 /* SceneDelegate.swift in Sources */,
 				E9A7B1552B0B532900315E12 /* DrawingBoundingBoxView.swift in Sources */,
 				E9A7B1512B0B51E800315E12 /* VideoCapture.swift in Sources */,

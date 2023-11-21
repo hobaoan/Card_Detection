@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uZC-If-eF3">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -8,20 +8,71 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
+        <scene sceneID="1FW-S9-83C">
+            <objects>
+                <viewController id="A8T-l4-dxn" customClass="StartViewController" customModule="Card_Detection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QWw-8H-Noc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylq-Tm-MPj">
+                                <rect key="frame" x="201.66666666666663" y="748" width="181.33333333333337" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WNy-9h-Snz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ID Card"/>
+                                <connections>
+                                    <action selector="btnCardTapped:" destination="A8T-l4-dxn" eventType="touchUpInside" id="Xrp-Ee-q0c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-tW-XDt">
+                                <rect key="frame" x="10" y="748" width="181.66666666666666" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HXJ-kQ-r2w"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Yolov8s"/>
+                                <connections>
+                                    <action selector="btnYoloTapped:" destination="A8T-l4-dxn" eventType="touchUpInside" id="Vxk-ug-LMz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EXa-DS-xPQ"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ylq-Tm-MPj" firstAttribute="leading" secondItem="ZxN-tW-XDt" secondAttribute="trailing" constant="10" id="GD7-At-fXi"/>
+                            <constraint firstItem="ZxN-tW-XDt" firstAttribute="leading" secondItem="EXa-DS-xPQ" secondAttribute="leading" constant="10" id="MqA-tt-cfe"/>
+                            <constraint firstItem="EXa-DS-xPQ" firstAttribute="bottom" secondItem="Ylq-Tm-MPj" secondAttribute="bottom" constant="20" id="U4n-Qh-bFh"/>
+                            <constraint firstItem="Ylq-Tm-MPj" firstAttribute="width" secondItem="ZxN-tW-XDt" secondAttribute="width" id="lv7-BK-fR3"/>
+                            <constraint firstItem="EXa-DS-xPQ" firstAttribute="trailing" secondItem="Ylq-Tm-MPj" secondAttribute="trailing" constant="10" id="uQX-HJ-Cgn"/>
+                            <constraint firstItem="EXa-DS-xPQ" firstAttribute="bottom" secondItem="ZxN-tW-XDt" secondAttribute="bottom" constant="20" id="uoE-w7-WNC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8U8-Nt-OPJ"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="pushViewController" id="cmM-DQ-ANB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AL8-gv-SMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333.58778625954199" y="-182.3943661971831"/>
+        </scene>
+        <!--Preview Camera Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Card_Detection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="PreviewCameraController" customModule="Card_Detection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHx-LT-4qm">
-                                <rect key="frame" x="-76.666666666666686" y="62" width="546.33333333333348" height="728"/>
+                                <rect key="frame" x="-43.666666666666657" y="106" width="480.33333333333326" height="640"/>
                                 <color key="backgroundColor" red="0.86274509799999999" green="0.63529411759999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50M-IE-U3a" customClass="DrawingBoundingBoxView" customModule="ScanCardDetection" customModuleProvider="target">
-                                <rect key="frame" x="-76.666666666666686" y="62" width="546.33333333333348" height="728"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50M-IE-U3a" customClass="DrawingBoundingBoxView" customModule="Card_Detection" customModuleProvider="target">
+                                <rect key="frame" x="-43.666666666666657" y="106" width="480.33333333333326" height="640"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -38,6 +89,7 @@
                             <constraint firstItem="50M-IE-U3a" firstAttribute="leading" secondItem="fHx-LT-4qm" secondAttribute="leading" id="zRC-ns-ORY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GXJ-bH-mMw"/>
                     <connections>
                         <outlet property="boxesView" destination="50M-IE-U3a" id="PVL-UL-A3n"/>
                         <outlet property="videoPreview" destination="fHx-LT-4qm" id="OdZ-Ro-raH"/>
@@ -45,7 +97,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131" y="-27"/>
+            <point key="canvasLocation" x="599.23664122137404" y="-182.3943661971831"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h3l-gn-FFi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uZC-If-eF3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LzF-xm-jip">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A8T-l4-dxn" kind="relationship" relationship="rootViewController" id="Os8-Ua-JDv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4UP-c2-Ohh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1260.3053435114502" y="-182.3943661971831"/>
         </scene>
     </scenes>
     <resources>
